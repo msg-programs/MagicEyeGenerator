@@ -174,7 +174,7 @@ public class GUI extends JFrame implements ActionListener {
 			}
 
 			Display d = new Display();
-			
+
 			if (frame == null) {
 				d = new Display();
 				frame = new JFrame("Display");
@@ -184,11 +184,11 @@ public class GUI extends JFrame implements ActionListener {
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
 			}
-			
+
 			d.setImage(buf);
 			frame.add(d);
+			frame.setSize(buf.getWidth(), buf.getHeight());
 			d.repaint();
-
 
 			return;
 		}
@@ -210,46 +210,31 @@ public class GUI extends JFrame implements ActionListener {
 			return;
 		}
 
-		JLabel sel = null;
-
-		if (obj.equals(txt)) {
-			sel = txtSel;
-		}
-
-		if (obj.equals(img)) {
-			sel = imgSel;
-		}
-
-		if (sel == null) {
-			return;
-		}
-
 		File f = doFileSelect();
 
 		if (f == null) {
 			return;
 		}
 
-		if (sel.equals(txtSel)) {
-//			File f = new File("D:\\workspace\\3D\\txt\\satin1.gif");
+		if (obj.equals(txt)) {
 			if (StereoGen.setTexture(f)) {
-				sel.setText("Selected: " + f.getName());
+				txtSel.setText("Selected: " + f.getName());
 				return;
 			}
+			txtSel.setText("Error while opening file!");
 		} else {
-//			File f = new File("D:\\workspace\\3D\\img\\map.jpg");
 			if (StereoGen.setImage(f)) {
-				sel.setText("Selected: " + f.getName());
+				imgSel.setText("Selected: " + f.getName());
 				return;
 			}
+			imgSel.setText("Error while opening file!");
 		}
-		sel.setText("Error while opening file!");
 
 	}
 
 	private File doFileSelect() {
-		JFileChooser jfc = new JFileChooser(/*"D:/workspace/3D"*/);
-		jfc.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg","jpeg", "png", "gif", "bmp","wbmp"));
+		JFileChooser jfc = new JFileChooser();
+		jfc.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "jpeg", "png", "gif", "bmp", "wbmp"));
 		int ret = jfc.showOpenDialog(null);
 
 		if (ret != JFileChooser.APPROVE_OPTION) {

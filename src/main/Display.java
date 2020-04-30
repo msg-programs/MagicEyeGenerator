@@ -21,6 +21,6 @@ public class Display extends JPanel {
 
 	public void setImage(BufferedImage buf) {
 		img = buf;
-		this.setSize(buf.getWidth(), buf.getHeight())	;
-		}
+		this.setSize(buf.getWidth(), buf.getHeight());
+	}
 }
