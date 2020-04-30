@@ -10,14 +10,17 @@ public class Display extends JPanel {
 
 	BufferedImage img = null;
 
-	public Display(BufferedImage i) {
+	public Display() {
 		super();
-		img = i;
-		this.setSize(i.getWidth(), i.getHeight());
 	}
 
 	public void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.drawImage(img, null, 0, 0);
 	}
+
+	public void setImage(BufferedImage buf) {
+		img = buf;
+		this.setSize(buf.getWidth(), buf.getHeight())	;
+		}
 }

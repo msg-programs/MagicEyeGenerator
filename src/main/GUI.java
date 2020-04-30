@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class GUI extends JFrame implements ActionListener {
 
@@ -172,18 +173,22 @@ public class GUI extends JFrame implements ActionListener {
 				return;
 			}
 
-			if (frame != null) {
-				frame.dispose();
+			Display d = new Display();
+			
+			if (frame == null) {
+				d = new Display();
+				frame = new JFrame("Display");
+				frame.setSize(buf.getWidth(), buf.getHeight());
+				frame.setResizable(false);
+				frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
 			}
+			
+			d.setImage(buf);
+			frame.add(d);
+			d.repaint();
 
-			frame = new JFrame("Display");
-			frame.setSize(buf.getWidth(), buf.getHeight());
-			frame.add(new Display(buf));
-			frame.setResizable(false);
-			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			frame.repaint();
-			frame.setLocationRelativeTo(null);
-			frame.setVisible(true);
 
 			return;
 		}
@@ -226,11 +231,13 @@ public class GUI extends JFrame implements ActionListener {
 		}
 
 		if (sel.equals(txtSel)) {
+//			File f = new File("D:\\workspace\\3D\\txt\\satin1.gif");
 			if (StereoGen.setTexture(f)) {
 				sel.setText("Selected: " + f.getName());
 				return;
 			}
 		} else {
+//			File f = new File("D:\\workspace\\3D\\img\\map.jpg");
 			if (StereoGen.setImage(f)) {
 				sel.setText("Selected: " + f.getName());
 				return;
@@ -241,7 +248,8 @@ public class GUI extends JFrame implements ActionListener {
 	}
 
 	private File doFileSelect() {
-		JFileChooser jfc = new JFileChooser("D:/workspace/3D");
+		JFileChooser jfc = new JFileChooser(/*"D:/workspace/3D"*/);
+		jfc.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg","jpeg", "png", "gif", "bmp","wbmp"));
 		int ret = jfc.showOpenDialog(null);
 
 		if (ret != JFileChooser.APPROVE_OPTION) {
