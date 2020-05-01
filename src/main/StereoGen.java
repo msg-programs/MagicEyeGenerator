@@ -1,6 +1,7 @@
+// File is part of MagicEyeGenerator (c) msg-programs 2020, see LICENSE
+
 package main;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;

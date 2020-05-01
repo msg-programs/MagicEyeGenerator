@@ -1,3 +1,5 @@
+// File is part of MagicEyeGenerator (c) msg-programs 2020, see LICENSE
+
 package main;
 
 import java.awt.Dimension;
@@ -8,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -21,6 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class GUI extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
 
 	private static final String THIS_DIR = ClassLoader.getSystemClassLoader().getResource(".").getPath()
 			.replaceAll("%20", " ").substring(1);
@@ -233,7 +236,7 @@ public class GUI extends JFrame implements ActionListener {
 	}
 
 	private File doFileSelect() {
-		JFileChooser jfc = new JFileChooser();
+		JFileChooser jfc = new JFileChooser(System.getProperty("user.home"));
 		jfc.addChoosableFileFilter(new FileNameExtensionFilter("Images", "jpg", "jpeg", "png", "gif", "bmp", "wbmp"));
 		int ret = jfc.showOpenDialog(null);
 
