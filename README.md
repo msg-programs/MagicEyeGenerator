@@ -1,16 +1,16 @@
-#"=== Readme - Magic Eye Generator v1.0 ==="
+# === Readme - Magic Eye Generator v1.0 ===
 
-##== By:  
-msg (msg-programs)
+## == By:  
+* msg (msg-programs)
 
-##== What:  
-A program to generate autostereograms aka magic eye images from two images.
+## == What:  
+* A program to generate autostereograms aka magic eye images from two images.
 
-##== Needed:  
-Java >=8  
-Tested with Java 8 as shipped with the current Minecraft Launcher and JDK 13.
+## == Needed:  
+* Java >=8  
+* Tested with Java 8 as shipped with the current Minecraft Launcher and JDK 13.
 
-##== Usage:  
+## == Usage:  
 1. Select "texture", the repeatng pattern as seen normally. Preferrably a tileable image
 2. Select "depth map", the image to appear. Generated image will be the size of this image.
 3. Enter scale of texture as float. Bigger number = smaller scale, since downscaling is more often used. 
@@ -24,9 +24,9 @@ Tested with Java 8 as shipped with the current Minecraft Launcher and JDK 13.
 8. Adjust values until image can be seen and recognised clearly.
 9. Save image using the button. Image will be saved as a number in the same directory as the jar.
 
-##== Generated files:  
-Image will be saved as with a number as the name in the same directory as the jar.
+## == Generated files:  
+* Image will be saved as with a number as the name in the same directory as the jar.
 
-##== Final notes:
-On Java 8, UI might be small on hi-res displays.
-Display frame close button is disabled, close program using the button on the settings panel frame.
+## == Final notes:
+* On Java 8, UI might be small on hi-res displays.
+* Display frame close button is disabled, close program using the button on the settings panel frame.
