@@ -80,11 +80,11 @@ public class Canvas extends JPanel {
         return dimg;
     }
 
-    public static BufferedImage deepCopy(BufferedImage bi) {
-        ColorModel cm = bi.getColorModel();
-        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
-        WritableRaster raster = bi.copyData(bi.getRaster().createCompatibleWritableRaster());
-        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
-    }
+//    public static BufferedImage deepCopy(BufferedImage bi) {
+//        ColorModel cm = bi.getColorModel();
+//        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+//        WritableRaster raster = bi.copyData(bi.getRaster().createCompatibleWritableRaster());
+//        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
+//    }
 
 }
